@@ -1,0 +1,571 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api Falzoni PHP Laravel",
+        "description": "Api de serviços com Laravel PHP",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/user/getAll": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Obter lista de usuários",
+                "description": "Retorna uma lista de usuários",
+                "operationId": "160711668a4e3f20822465f346396b62",
+                "responses": {
+                    "200": {
+                        "description": "Solicitação efetuada com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/user/get/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Obter usuario por Id",
+                "description": "Retorna o objeto do usuario",
+                "operationId": "45cd93f3dc0a2e6021234f8776177f22",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Usuário",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Solicitação efetuada com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/user/create": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Adicionar usuário",
+                "description": "Cria um novo registro de usuário",
+                "operationId": "f457f406a3220d6f646f5874ab56b0a7",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "full_name": {
+                                        "type": "string"
+                                    },
+                                    "user_name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "phone_number": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "full_name": "Test User",
+                                    "user_name": "testuser",
+                                    "email": "testuser@test.com.br",
+                                    "password": "abc123",
+                                    "phone_number": "(11) 92222-2222"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/user/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Login",
+                "description": "Autentica o usuário e retorna o bearer token",
+                "operationId": "0d86aa2f7690604b9622c1ba099ac4b9",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "testuser@test.com.br",
+                                    "password": "abc123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/user/update/{id}": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Atualizar usuário",
+                "description": "Atualiza um registro de usuário",
+                "operationId": "bd2929e09ee6e798edcc639128158681",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Usuário",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "full_name": {
+                                        "type": "string"
+                                    },
+                                    "user_name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "phone_number": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "full_name": "Test User",
+                                    "user_name": "testuser",
+                                    "email": "testuser@test.com.br",
+                                    "password": "abc123",
+                                    "phone_number": "(11) 92222-2222"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/user/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Remover usuário por Id",
+                "description": "Remove o usuário",
+                "operationId": "5f2aa3ebbb303f17e74faef8bd435d10",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Usuário",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/customer/getAll": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Listar clientes",
+                "description": "Retorna uma lista de clientes",
+                "operationId": "00b8edeb783fa7dd9e9ad9c637574db0",
+                "responses": {
+                    "200": {
+                        "description": "Solicitação efetuada com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/customer/get/{id}": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Listar cliente por Id",
+                "description": "Retorna o objeto do cliente",
+                "operationId": "3d5760bcdaf41adaed1c79513098f140",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Solicitação efetuada com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/customer/create": {
+            "post": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Adicionar cliente",
+                "description": "Cria um novo registro de cliente",
+                "operationId": "a9141f7af7e66c903e7253b2c71f4266",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "document": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "name": "Test Customer",
+                                    "document": "123.456.789-00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/customer/update": {
+            "put": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Atualizar cliente",
+                "description": "Atualiza um registro de cliente",
+                "operationId": "cefeb54afd68315899fbd1d742c59e73",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "document": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "name": "Test Customer",
+                                    "document": "123.456.789-00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/customer/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Remover cliente por Id",
+                "description": "Remove o cliente",
+                "operationId": "b9badb2c165c775507b2fb29cb8776c8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/api/product/getAll": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Listar produtos",
+                "description": "Retorna uma lista de produtos",
+                "operationId": "80f040f28d7291a2dd2fba9475ba48d5",
+                "responses": {
+                    "200": {
+                        "description": "Solicitação efetuada com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/product/get/{id}": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Listar produto por Id",
+                "description": "Retorna o objeto do produto",
+                "operationId": "bfa77bf640e9baf3b428ea6473ff98b8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Produto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Solicitação efetuada com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/product/create": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Adicionar produto",
+                "description": "Cria um novo registro de produto",
+                "operationId": "332e45b9c2a63faa0747f6cb178b9f93",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "document": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "name": "Test Product",
+                                    "document": "123.456.789-00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/product/update": {
+            "put": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Atualizar produto",
+                "description": "Atualiza um registro de produto",
+                "operationId": "7832bd7edc0a3d4bb6b557f467ac7d3d",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "document": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "name": "Test Product",
+                                    "document": "123.456.789-00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/api/product/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Remover produto por Id",
+                "description": "Remove o produto",
+                "operationId": "ad920499e86c324625ef4380d13d9629",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Produto",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "400": {
+                "description": "Bad Request"
+            }
+        },
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "description": "Token de autorização (JWT) a ser inserido",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "User"
+        },
+        {
+            "name": "Customer"
+        },
+        {
+            "name": "Product"
+        }
+    ]
+}
