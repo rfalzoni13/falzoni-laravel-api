@@ -5,11 +5,11 @@ namespace Tests\Unit\Register;
 use App\Repositories\Classes\Register\CustomerRepository;
 use App\Services\Classes\Register\CustomerService;
 use App\Services\Interfaces\Register\InterfaceCustomerService;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Uid\UuidV4;
+use Tests\Unit\Base\AbstractServiceBaseTest;
 
-class CustomerServiceTest extends TestCase
+class CustomerServiceTest extends AbstractServiceBaseTest
 {
     protected function getService(): InterfaceCustomerService
     {
