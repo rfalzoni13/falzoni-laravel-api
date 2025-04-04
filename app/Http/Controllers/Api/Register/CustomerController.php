@@ -192,6 +192,6 @@ class CustomerController extends Controller
     {
         $this->service->delete($id);
 
-        return response()->json("Usuário removido com sucesso!");
+        return response()->json("Cliente removido com sucesso!");
     }
 }

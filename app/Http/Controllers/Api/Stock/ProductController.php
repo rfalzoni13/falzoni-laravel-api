@@ -192,6 +192,6 @@ class ProductController extends Controller
     {
         $this->service->delete($id);
 
-        return response()->json("Usuário removido com sucesso!");
+        return response()->json("Produto removido com sucesso!");
     }
 }
