@@ -9,29 +9,29 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-Route::controller(UserController::class)->group(function() {
-    Route::post('/user/login', 'login');
-    Route::get('/user/getAll', 'getAll');
-    Route::get('/user/get/{id}', 'get');
-    Route::post('/user/create', 'create');
-    Route::put('/user/update', 'update');
-    Route::delete('/user/delete/{id}', 'delete');
+Route::prefix('user')->controller(UserController::class)->group(function() {
+    Route::post('/login', 'login');
+    Route::get('/getAll', 'getAll');
+    Route::get('/get/{id}', 'get');
+    Route::post('/create', 'create');
+    Route::put('/update', 'update');
+    Route::delete('/delete/{id}', 'delete');
 });
 
 // Customer routes
-Route::controller(CustomerController::class)->group(function() {
-    Route::get('/customer/getAll', 'getAll');
-    Route::get('/customer/get/{id}', 'get');
-    Route::post('/customer/create', 'create');
-    Route::put('/customer/update', 'update');
-    Route::delete('/customer/delete/{id}', 'delete');
+Route::prefix('customer')->controller(CustomerController::class)->group(function() {
+    Route::get('/getAll', 'getAll');
+    Route::get('/get/{id}', 'get');
+    Route::post('/create', 'create');
+    Route::put('/update', 'update');
+    Route::delete('/delete/{id}', 'delete');
 });
 
 // Product routes
-Route::controller(ProductController::class)->group(function() {
-    Route::get('/product/getAll', 'getAll');
-    Route::get('/product/get/{id}', 'get');
-    Route::post('/product/create', 'create');
-    Route::put('/product/update', 'update');
-    Route::delete('/product/delete/{id}', 'delete');
+Route::prefix('product')->controller(ProductController::class)->group(function() {
+    Route::get('/getAll', 'getAll');
+    Route::get('/get/{id}', 'get');
+    Route::post('/create', 'create');
+    Route::put('/update', 'update');
+    Route::delete('/delete/{id}', 'delete');
 });
